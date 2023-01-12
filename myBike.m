@@ -16,14 +16,14 @@ setup.Re =            0.3479; %baseline rolling radius, will be updated by Pacej
 setup.steering_ratio = 11;
 
 %Car setup
-frontTIRfile = 'Michelin_31-71R18_333V_1b8_MF52.tir';
-rearTIRfile = 'Michelin_31-71R18_333V_1b8_MF52.tir';
+frontTIRfile = 'MagicFormula52_Paramerters.tir';
+rearTIRfile = 'MagicFormula52_Paramerters.tir';
 setup.tirParams_f = mfeval.readTIR(frontTIRfile);
 setup.tirParams_r = mfeval.readTIR(frontTIRfile);
 setup.rMechbal =      0.55; %LLTD mechanical balance
 setup.rWeightbal =    0.47; %weight balance
 setup.rAerobal =      0.43; %aero balance
-setup.Cz =            4; %downforce coefficient
+setup.Cz =            4.5; %downforce coefficient
 setup.Cx =            1.5; %drag coefficient
 setup.mCar =          1170; %complete car mass (uncluding unsprung elements)
 setup.camber_f =      2.8/57.3; %front camber angle
@@ -57,7 +57,7 @@ for i = 1:length(Vx)
 
 figure(2)
 hold on
-plot([accyMax(i) accy_sweep.*accyMax(i)],[0 accxMax(i,:)],'-o')
-plot([-1*accyMax(i) -1.*accy_sweep.*accyMax(i)],[0 accxMax(i,:)],'-o')
+plot([accy_sweep.*accyMax(i) accyMax(i)],[accxMax(i,:) 0],'-o')
+plot([-1.*accy_sweep.*accyMax(i) -1*accyMax(i)],[accxMax(i,:) 0],'-o')
 end
 
